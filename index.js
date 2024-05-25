@@ -22,9 +22,11 @@ const cek_Login = (token) => new Promise((resolve, reject) => {
     let jumlahDiamond = cekLogin.data.unused.map(item => {
         // Menghapus kata "MLBB Diamond" dan spasi yang tidak perlu
         console.log(item.title)
-        let jumlah = item.title.replace('MLBB Diamond', '').trim();
+        const cleanedTitle = item.title.replace('MLBB Diamond', '').trim();
+        // Menghapus semua karakter selain angka
+        const numericValue = cleanedTitle.replace(/[^\d]/g, '');
         // Mengubah string menjadi angka
-        return parseInt(jumlah, 10);
-      }).reduce((sum, nilai) => sum + nilai, 0); // Menjumlahkan semua angka
+        return parseInt(numericValue, 10);
+    }).reduce((sum, value) => sum + value, 0); // Menjumlahkan semua angka
       console.log(`Total diamond Unused = ${jumlahDiamond}`); // 
 })()

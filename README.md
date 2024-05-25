@@ -8,4 +8,4 @@ di bagian Header ambil value X-token
 
 node index.js
 
-paste ke botnya
+paste token ke botnya

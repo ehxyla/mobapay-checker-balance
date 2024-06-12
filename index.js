@@ -2,12 +2,22 @@ import fetch from "node-fetch";
 import readlineSync from 'readline-sync';
 
 const cek_Login = (token) => new Promise((resolve, reject) => {
-    const currentTime = Date.now();
-    fetch(`https://api.mobapay.com/account/gift_code_list?country=ID&language=en&_t=${currentTime}`, {
+    // const currentTime = Date.now();
+    fetch(`https://api.mobapay.com/account/gift_code_list?country=ID&language=en`, {
         method: 'GET',
         headers: {
             'host': 'api.mobapay.com',
-            'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148',
+            'Accept': 'application/json, text/plain, */*',
+            'Sec-Ch-Ua-Mobile': '?0',
+            'Origin': 'https://www.mobapay.com',
+            'Referer': 'https://www.mobapay.com/',
+            'Pragma': 'no-cache',
+            'Priority': 'u=1, i',
+            'Sec-Ch-Ua': '"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
+            'Sec-Ch-Ua-Platform': '"Windows"',
+            'Sec-Fetch-Dest':'empty',
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+            'X-Lang': 'en',
             'X-Token': token
         }
     })
